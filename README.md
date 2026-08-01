@@ -2,7 +2,7 @@
 
 # 💫 About Me
 
-🏫Pursuing Bachelor Of Technology Degree at Kongu Engineering College<br>📱Passion for developing Web apps.<br>🤖Artificial Intelligence enthusiast.<br>
+🏫Bachelor Of Technology Degree at Kongu Engineering College<br>📱Passion for developing Web apps.<br>🤖Artificial Intelligence enthusiast.<br>
     🌐Fullstack Developer, AI Engineer.
 
 <br><br>
