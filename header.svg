@@ -1,71 +1,156 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b1220">
-        <animate attributeName="stop-color" values="#0b1220;#0f1a33;#0b1220" dur="10s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="1" stop-color="#16213e">
-        <animate attributeName="stop-color" values="#16213e;#1b1b3f;#16213e" dur="10s" repeatCount="indefinite"/>
-      </stop>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141b38"/>
+      <stop offset="0.4" stop-color="#34437a"/>
+      <stop offset="0.75" stop-color="#9a8fbf"/>
+      <stop offset="1" stop-color="#f0cdc0"/>
     </linearGradient>
 
-    <linearGradient id="txt" gradientUnits="userSpaceOnUse" x1="250" y1="0" x2="650" y2="0" spreadMethod="reflect">
-      <stop offset="0" stop-color="#38bdf8"/>
-      <stop offset="0.5" stop-color="#818cf8"/>
-      <stop offset="1" stop-color="#c084fc"/>
-      <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="800 0" dur="8s" repeatCount="indefinite"/>
+    <linearGradient id="txt" gradientUnits="userSpaceOnUse" x1="260" y1="0" x2="640" y2="0" spreadMethod="reflect">
+      <stop offset="0" stop-color="#f4f1ea"/>
+      <stop offset="0.45" stop-color="#dfeaff"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="0.55" stop-color="#dfeaff"/>
+      <stop offset="1" stop-color="#f4f1ea"/>
+      <animateTransform attributeName="gradientTransform" type="translate" from="-380 0" to="380 0" dur="9s" repeatCount="indefinite"/>
     </linearGradient>
 
-    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#38bdf8" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#818cf8"/>
-      <stop offset="1" stop-color="#c084fc" stop-opacity="0"/>
+    <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.95"/>
     </linearGradient>
 
-    <radialGradient id="orbA">
-      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="orbB">
-      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    <radialGradient id="cloud">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
 
-    <filter id="glow" x="-10%" y="-40%" width="120%" height="180%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
+    <filter id="glow" x="-10%" y="-60%" width="120%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.6"/>
+    </filter>
+
+    <!-- blue flower on a stem -->
+    <g id="fl">
+      <path d="M0,0 Q2,-9 0,-18" stroke="#5f9a78" stroke-width="1.3" fill="none"/>
+      <g fill="#a9c8ff">
+        <circle cx="0" cy="-21" r="2.4"/>
+        <circle cx="2.5" cy="-19" r="2.4"/>
+        <circle cx="-2.5" cy="-19" r="2.4"/>
+        <circle cx="1.6" cy="-16.4" r="2.4"/>
+        <circle cx="-1.6" cy="-16.4" r="2.4"/>
+      </g>
+      <circle cx="0" cy="-18.8" r="1.4" fill="#fff6c9"/>
+    </g>
 
     <clipPath id="frame"><rect width="900" height="240" rx="18"/></clipPath>
   </defs>
 
   <g clip-path="url(#frame)">
-    <rect width="900" height="240" fill="url(#bg)"/>
+    <rect width="900" height="240" fill="url(#sky)"/>
 
-    <!-- drifting glows -->
-    <circle cx="170" cy="70" r="150" fill="url(#orbA)">
-      <animateTransform attributeName="transform" type="translate" values="0 0;80 30;0 0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" dur="14s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="740" cy="180" r="170" fill="url(#orbB)">
-      <animateTransform attributeName="transform" type="translate" values="0 0;-90 -30;0 0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" dur="16s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- heading -->
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="1.2s" fill="freeze"/>
-      <animateTransform attributeName="transform" type="translate" from="0 14" to="0 0" dur="1.2s" fill="freeze"/>
-      <text x="450" y="133" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="2" fill="url(#txt)" filter="url(#glow)">Hello World!</text>
+    <!-- stars -->
+    <g fill="#ffffff">
+      <circle cx="70" cy="28" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4s" repeatCount="indefinite"/></circle>
+      <circle cx="170" cy="60" r="1"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="5s" begin="1s" repeatCount="indefinite"/></circle>
+      <circle cx="300" cy="22" r="1.3"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.5s" begin="2s" repeatCount="indefinite"/></circle>
+      <circle cx="590" cy="30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="5.5s" begin="0.5s" repeatCount="indefinite"/></circle>
+      <circle cx="720" cy="64" r="1"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.2s" begin="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="840" cy="26" r="1.3"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="5s" begin="2.5s" repeatCount="indefinite"/></circle>
     </g>
 
-    <!-- accent line -->
-    <rect x="450" y="165" width="0" height="3" rx="1.5" fill="url(#line)">
-      <animate attributeName="x" from="450" to="330" begin="0.6s" dur="1.2s" fill="freeze"/>
-      <animate attributeName="width" from="0" to="240" begin="0.6s" dur="1.2s" fill="freeze"/>
+    <!-- shooting star -->
+    <rect x="0" y="0" width="90" height="1.5" fill="url(#trail)" transform="rotate(25)" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.9;0;0" keyTimes="0;0.5;0.55;0.65;1" dur="10s" begin="2s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" additive="sum" values="520 -20;520 -20;760 90;760 90" keyTimes="0;0.5;0.65;1" dur="10s" begin="2s" repeatCount="indefinite"/>
     </rect>
+
+    <!-- drifting clouds -->
+    <ellipse cx="200" cy="90" rx="190" ry="26" fill="url(#cloud)">
+      <animateTransform attributeName="transform" type="translate" values="-40 0;60 0;-40 0" dur="30s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="700" cy="140" rx="210" ry="28" fill="url(#cloud)">
+      <animateTransform attributeName="transform" type="translate" values="50 0;-60 0;50 0" dur="36s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- magic circle -->
+    <g transform="translate(450 112)" fill="none" stroke="#dbe9ff" stroke-linecap="round" opacity="0.28">
+      <animateTransform attributeName="transform" type="rotate" additive="sum" from="0" to="360" dur="90s" repeatCount="indefinite"/>
+      <circle r="100" stroke-width="1" stroke-dasharray="2 8"/>
+      <circle r="88" stroke-width="1.2"/>
+      <polygon points="0,-88 76,44 -76,44" stroke-width="1"/>
+      <polygon points="0,88 76,-44 -76,-44" stroke-width="1"/>
+      <circle r="30" stroke-width="1" stroke-dasharray="6 6"/>
+    </g>
+    <circle cx="450" cy="112" r="100" fill="none" stroke="#fff6d6" stroke-width="1" stroke-opacity="0.18">
+      <animate attributeName="stroke-opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- hills -->
+    <path fill="#4a5a8c" d="M0,190 Q150,168 300,186 T600,182 T900,172 L900,240 L0,240Z"/>
+    <path fill="#2f3b6c" d="M0,208 Q220,190 420,205 T900,196 L900,240 L0,240Z"/>
+    <path fill="#1a2250" d="M0,228 Q250,214 500,226 T900,218 L900,240 L0,240Z"/>
+
+    <!-- traveler silhouette -->
+    <g fill="#10173a">
+      <path d="M122,208 L130,178 L138,208Z"/>
+      <circle cx="130" cy="174" r="4"/>
+      <rect x="141" y="172" width="1.6" height="36"/>
+      <circle cx="141.8" cy="170" r="2.6"/>
+    </g>
+
+    <!-- flowers -->
+    <g>
+      <g transform="translate(60 222) scale(1.1)"><g><animateTransform attributeName="transform" type="rotate" values="-5 0 0;5 0 0;-5 0 0" dur="4s" begin="-1s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(110 232) scale(1.3)"><g><animateTransform attributeName="transform" type="rotate" values="-6 0 0;6 0 0;-6 0 0" dur="4.6s" begin="-2s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(180 226)"><g><animateTransform attributeName="transform" type="rotate" values="-5 0 0;5 0 0;-5 0 0" dur="5s" begin="-3s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(250 234) scale(1.2)"><g><animateTransform attributeName="transform" type="rotate" values="-6 0 0;6 0 0;-6 0 0" dur="4.2s" begin="-0.5s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(330 228) scale(0.9)"><g><animateTransform attributeName="transform" type="rotate" values="-5 0 0;5 0 0;-5 0 0" dur="5.4s" begin="-4s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(410 236) scale(1.3)"><g><animateTransform attributeName="transform" type="rotate" values="-6 0 0;6 0 0;-6 0 0" dur="4.8s" begin="-1.5s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(490 230)"><g><animateTransform attributeName="transform" type="rotate" values="-5 0 0;5 0 0;-5 0 0" dur="4.4s" begin="-2.5s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(570 236) scale(1.2)"><g><animateTransform attributeName="transform" type="rotate" values="-6 0 0;6 0 0;-6 0 0" dur="5.2s" begin="-3.5s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(650 228) scale(0.9)"><g><animateTransform attributeName="transform" type="rotate" values="-5 0 0;5 0 0;-5 0 0" dur="4s" begin="-0.8s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(720 234) scale(1.3)"><g><animateTransform attributeName="transform" type="rotate" values="-6 0 0;6 0 0;-6 0 0" dur="4.7s" begin="-2.2s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(790 226)"><g><animateTransform attributeName="transform" type="rotate" values="-5 0 0;5 0 0;-5 0 0" dur="5.1s" begin="-1.2s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(850 232) scale(1.2)"><g><animateTransform attributeName="transform" type="rotate" values="-6 0 0;6 0 0;-6 0 0" dur="4.3s" begin="-3.1s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(30 210) scale(0.8)"><g><animateTransform attributeName="transform" type="rotate" values="-5 0 0;5 0 0;-5 0 0" dur="5.6s" begin="-2.8s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+      <g transform="translate(870 206) scale(0.8)"><g><animateTransform attributeName="transform" type="rotate" values="-5 0 0;5 0 0;-5 0 0" dur="5.3s" begin="-1.7s" repeatCount="indefinite"/><use href="#fl"/></g></g>
+    </g>
+
+    <!-- floating light motes and petals -->
+    <g fill="#eaf3ff" filter="url(#soft)">
+      <circle r="2"><animate attributeName="cx" values="100;180" dur="12s" repeatCount="indefinite"/><animate attributeName="cy" values="230;60" dur="12s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="12s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animate attributeName="cx" values="260;330" dur="14s" begin="-4s" repeatCount="indefinite"/><animate attributeName="cy" values="235;70" dur="14s" begin="-4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="14s" begin="-4s" repeatCount="indefinite"/></circle>
+      <circle r="2.2"><animate attributeName="cx" values="420;500" dur="13s" begin="-8s" repeatCount="indefinite"/><animate attributeName="cy" values="238;80" dur="13s" begin="-8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="13s" begin="-8s" repeatCount="indefinite"/></circle>
+      <circle r="1.8"><animate attributeName="cx" values="560;640" dur="15s" begin="-2s" repeatCount="indefinite"/><animate attributeName="cy" values="236;50" dur="15s" begin="-2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="15s" begin="-2s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animate attributeName="cx" values="700;780" dur="12.5s" begin="-6s" repeatCount="indefinite"/><animate attributeName="cy" values="232;66" dur="12.5s" begin="-6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="12.5s" begin="-6s" repeatCount="indefinite"/></circle>
+      <circle r="1.5"><animate attributeName="cx" values="820;880" dur="16s" begin="-10s" repeatCount="indefinite"/><animate attributeName="cy" values="234;90" dur="16s" begin="-10s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="16s" begin="-10s" repeatCount="indefinite"/></circle>
+    </g>
+    <g fill="#cfe2ff" fill-opacity="0.85">
+      <ellipse rx="3" ry="1.6"><animate attributeName="cx" values="-10;910" dur="18s" repeatCount="indefinite"/><animate attributeName="cy" values="150;120;160" dur="18s" repeatCount="indefinite"/></ellipse>
+      <ellipse rx="2.4" ry="1.3"><animate attributeName="cx" values="-10;910" dur="22s" begin="-9s" repeatCount="indefinite"/><animate attributeName="cy" values="190;170;200" dur="22s" begin="-9s" repeatCount="indefinite"/></ellipse>
+    </g>
+
+    <!-- title -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="2.4s" begin="0.3s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="2.4s" begin="0.3s" calcMode="spline" keyTimes="0;1" keySplines="0.22 0.61 0.36 1" fill="freeze"/>
+      <text x="450" y="124" text-anchor="middle" font-family="'Palatino Linotype','Book Antiqua',Georgia,'Times New Roman',serif" font-size="62" font-weight="400" letter-spacing="5" fill="url(#txt)" filter="url(#glow)">Hello World!</text>
+    </g>
+
+    <!-- subtitle -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="0.85" dur="2s" begin="1.8s" fill="freeze"/>
+      <text x="450" y="162" text-anchor="middle" font-family="'Palatino Linotype','Book Antiqua',Georgia,serif" font-style="italic" font-size="17" letter-spacing="4" fill="#f3e9ee">the journey continues</text>
+    </g>
   </g>
 
   <!-- border -->
-  <rect x="1" y="1" width="898" height="238" rx="17" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.5">
-    <animate attributeName="stroke-opacity" values="0.5;0.2;0.5" dur="6s" repeatCount="indefinite"/>
+  <rect x="1" y="1" width="898" height="238" rx="17" fill="none" stroke="#dbe9ff" stroke-width="1.5" stroke-opacity="0.35">
+    <animate attributeName="stroke-opacity" values="0.35;0.15;0.35" dur="7s" repeatCount="indefinite"/>
   </rect>
 </svg>
