@@ -22,7 +22,7 @@
   </defs>
 
   <style>
-    .t{font-family:'Courier New',Courier,monospace;font-weight:700;font-size:100px;letter-spacing:12px;text-anchor:middle}
+    .t{font-family:'Courier New',Courier,monospace;font-weight:700;font-size:66px;letter-spacing:4px;text-anchor:middle}
     .c{fill:#00f5ff;opacity:.85;animation:g1 3s infinite steps(1)}
     .m{fill:#ff2e97;opacity:.85;animation:g2 3s infinite steps(1)}
     .w{fill:url(#txt);filter:url(#glow);animation:pulse 2s ease-in-out infinite}
@@ -37,7 +37,6 @@
   <g clip-path="url(#frame)">
     <rect width="900" height="240" fill="url(#bg)"/>
 
-    <!-- floating particles -->
     <g fill="#00f5ff">
       <circle cx="80" cy="220" r="3"><animate attributeName="cy" values="240;-10" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="6s" repeatCount="indefinite"/></circle>
       <circle cx="220" cy="220" r="2"><animate attributeName="cy" values="240;-10" dur="4.5s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4.5s" begin="1s" repeatCount="indefinite"/></circle>
@@ -47,7 +46,6 @@
       <circle cx="820" cy="220" r="2"><animate attributeName="cy" values="240;-10" dur="4s" begin="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4s" begin="3s" repeatCount="indefinite"/></circle>
     </g>
 
-    <!-- spinning rings -->
     <g fill="none" stroke-width="2" stroke-dasharray="14 10">
       <circle cx="90" cy="120" r="55" stroke="#ff2e97" opacity=".7">
         <animateTransform attributeName="transform" type="rotate" from="0 90 120" to="360 90 120" dur="8s" repeatCount="indefinite"/>
@@ -63,20 +61,19 @@
       </circle>
     </g>
 
-    <!-- glitching name -->
-    <text class="t c" x="450" y="130">GANESH</text>
-    <text class="t m" x="450" y="130">GANESH</text>
-    <text class="t w" x="450" y="130">GANESH</text>
+    <text class="t c" x="450" y="130">Hello World!</text>
+    <text class="t m" x="450" y="130">Hello World!</text>
+    <text class="t w" x="450" y="130">Hello World!</text>
 
-    <!-- subtitle with blinking cursor -->
     <text class="s" x="450" y="185">&lt; AI Engineer /&gt;<tspan class="cur">_</tspan></text>
 
-    <!-- scanline -->
     <rect width="900" height="3" fill="#ffffff" opacity=".12">
       <animate attributeName="y" values="-5;245" dur="3s" repeatCount="indefinite"/>
     </rect>
   </g>
 
-  <!-- pulsing border -->
   <rect x="2" y="2" width="896" height="236" rx="16" fill="none" stroke="#00f5ff" stroke-width="2">
-    <animate
+    <animate attributeName="stroke" values="#00f5ff;#ff2e97;#f7df1e;#00f5ff" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;.4;1" dur="2s" repeatCount="indefinite"/>
+  </rect>
+</svg>
