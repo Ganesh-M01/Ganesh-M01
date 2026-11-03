@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f0c29">
+        <animate attributeName="stop-color" values="#0f0c29;#1b0f3a;#0a2a43;#0f0c29" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#302b63">
+        <animate attributeName="stop-color" values="#302b63;#0a2a43;#3a0f3a;#302b63" dur="8s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <linearGradient id="txt" x1="0" x2="0.5" spreadMethod="reflect">
+      <stop offset="0" stop-color="#00f5ff"/>
+      <stop offset="0.5" stop-color="#ff2e97"/>
+      <stop offset="1" stop-color="#f7df1e"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-0.5 0;0.5 0;-0.5 0" dur="4s" repeatCount="indefinite"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="frame"><rect width="900" height="240" rx="18"/></clipPath>
+  </defs>
+
+  <style>
+    .t{font-family:'Courier New',Courier,monospace;font-weight:700;font-size:100px;letter-spacing:12px;text-anchor:middle}
+    .c{fill:#00f5ff;opacity:.85;animation:g1 3s infinite steps(1)}
+    .m{fill:#ff2e97;opacity:.85;animation:g2 3s infinite steps(1)}
+    .w{fill:url(#txt);filter:url(#glow);animation:pulse 2s ease-in-out infinite}
+    .s{font-family:'Courier New',Courier,monospace;font-size:26px;fill:#e6f1ff;letter-spacing:4px;text-anchor:middle}
+    @keyframes g1{0%,88%,100%{transform:translate(0,0)}90%{transform:translate(-8px,2px)}93%{transform:translate(6px,-3px)}96%{transform:translate(-4px,1px)}}
+    @keyframes g2{0%,88%,100%{transform:translate(0,0)}91%{transform:translate(8px,-2px)}94%{transform:translate(-6px,3px)}97%{transform:translate(4px,0)}}
+    @keyframes pulse{0%,100%{opacity:.9}50%{opacity:1}}
+    @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    .cur{animation:blink 1s infinite}
+  </style>
+
+  <g clip-path="url(#frame)">
+    <rect width="900" height="240" fill="url(#bg)"/>
+
+    <!-- floating particles -->
+    <g fill="#00f5ff">
+      <circle cx="80" cy="220" r="3"><animate attributeName="cy" values="240;-10" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="6s" repeatCount="indefinite"/></circle>
+      <circle cx="220" cy="220" r="2"><animate attributeName="cy" values="240;-10" dur="4.5s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4.5s" begin="1s" repeatCount="indefinite"/></circle>
+      <circle cx="380" cy="220" r="4"><animate attributeName="cy" values="240;-10" dur="7s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="7s" begin="2s" repeatCount="indefinite"/></circle>
+      <circle cx="520" cy="220" r="2"><animate attributeName="cy" values="240;-10" dur="5s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="5s" begin="0.5s" repeatCount="indefinite"/></circle>
+      <circle cx="680" cy="220" r="3"><animate attributeName="cy" values="240;-10" dur="6.5s" begin="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="6.5s" begin="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="820" cy="220" r="2"><animate attributeName="cy" values="240;-10" dur="4s" begin="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4s" begin="3s" repeatCount="indefinite"/></circle>
+    </g>
+
+    <!-- spinning rings -->
+    <g fill="none" stroke-width="2" stroke-dasharray="14 10">
+      <circle cx="90" cy="120" r="55" stroke="#ff2e97" opacity=".7">
+        <animateTransform attributeName="transform" type="rotate" from="0 90 120" to="360 90 120" dur="8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="90" cy="120" r="38" stroke="#00f5ff" opacity=".7">
+        <animateTransform attributeName="transform" type="rotate" from="360 90 120" to="0 90 120" dur="5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="810" cy="120" r="55" stroke="#00f5ff" opacity=".7">
+        <animateTransform attributeName="transform" type="rotate" from="360 810 120" to="0 810 120" dur="8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="810" cy="120" r="38" stroke="#ff2e97" opacity=".7">
+        <animateTransform attributeName="transform" type="rotate" from="0 810 120" to="360 810 120" dur="5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- glitching name -->
+    <text class="t c" x="450" y="130">GANESH</text>
+    <text class="t m" x="450" y="130">GANESH</text>
+    <text class="t w" x="450" y="130">GANESH</text>
+
+    <!-- subtitle with blinking cursor -->
+    <text class="s" x="450" y="185">&lt; AI Engineer /&gt;<tspan class="cur">_</tspan></text>
+
+    <!-- scanline -->
+    <rect width="900" height="3" fill="#ffffff" opacity=".12">
+      <animate attributeName="y" values="-5;245" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- pulsing border -->
+  <rect x="2" y="2" width="896" height="236" rx="16" fill="none" stroke="#00f5ff" stroke-width="2">
+    <animate
