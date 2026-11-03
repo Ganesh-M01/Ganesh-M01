@@ -145,7 +145,7 @@
     <!-- subtitle -->
     <g opacity="0">
       <animate attributeName="opacity" from="0" to="0.85" dur="2s" begin="1.8s" fill="freeze"/>
-      <text x="450" y="162" text-anchor="middle" font-family="'Palatino Linotype','Book Antiqua',Georgia,serif" font-style="italic" font-size="17" letter-spacing="4" fill="#f3e9ee">the journey continues</text>
+      <text x="450" y="162" text-anchor="middle" font-family="'Palatino Linotype','Book Antiqua',Georgia,serif" font-style="italic" font-size="17" letter-spacing="4" fill="#f3e9ee">The Beginning of a Peaceful Arc</text>
     </g>
   </g>
 
