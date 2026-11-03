@@ -34,8 +34,8 @@ AI Engineer who builds things that make developers' lives easier, so you can spe
 <img src="https://readme-typing-svg.demolab.com?font=Cormorant+Garamond&weight=700&size=28&duration=1500&color=A9C8FF&vCenter=true&repeat=false&width=420&height=40&lines=The+numbers+(don%27t+judge)" alt="The numbers" />
 
 <p align="center">
-  <img height="150" src="https://github-readme-stats.vercel.app/api?username=Ganesh-M01&hide_border=true&include_all_commits=true&count_private=true&bg_color=141b38&title_color=A9C8FF&text_color=DFEAFF&icon_color=F0CDC0" />
-  <img height="150" src="https://nirzak-streak-stats.vercel.app/?user=Ganesh-M01&hide_border=true&background=141b38&ring=A9C8FF&fire=F0CDC0&currStreakNum=F4F1EA&sideNums=DFEAFF&currStreakLabel=A9C8FF&sideLabels=DFEAFF&dates=9A8FBF" />
+  <img height="170" src="https://raw.githubusercontent.com/Ganesh-M01/Ganesh-M01/main/profile-summary-card-output/tokyonight/3-stats.svg" alt="GitHub stats" />
+  <img height="170" src="https://streak-stats.demolab.com/?user=Ganesh-M01&hide_border=true&background=141b38&ring=A9C8FF&fire=F0CDC0&currStreakNum=F4F1EA&sideNums=DFEAFF&currStreakLabel=A9C8FF&sideLabels=DFEAFF&dates=9A8FBF" alt="Streak stats" />
 </p>
 
 <img src="https://readme-typing-svg.demolab.com?font=Cormorant+Garamond&weight=700&size=28&duration=1500&color=A9C8FF&vCenter=true&repeat=false&width=420&height=40&lines=This+snake+eats+my+commits" alt="This snake eats my commits" />
